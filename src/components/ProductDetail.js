@@ -34,167 +34,125 @@ const ProductDetail = () => {
   ];
 
   const [selectedImage, setSelectedImage] = useState(productImages[0]);
+
   return (
-    <div className="mt-[90px] w-[80%] mx-auto flex">
+    <div className="mt-24 w-4/5 mx-auto flex">
+      {/* Left Column - Product Images and Details */}
       <div className="w-[55%] border-b border-r pb-6">
         <div className="flex justify-center items-center h-[400px] w-full">
-          <img
-            src={selectedImage}
-            alt="Product"
-            className="h-[400px] w-[400px] object-cover"
-          />
+          <img src={selectedImage} alt="Product" className="h-[400px] w-[400px] object-cover" />
         </div>
         <div className="flex justify-center items-center mt-4">
           {productImages.map((image) => (
             <img
               key={image}
               src={image}
-              alt="Product Thumbnail"
-              className={`h-[80px] w-[80px] object-cover cursor-pointer rounded-md mx-2 ${
-                selectedImage === image
-                  ? "border-2 border-buttonGreen"
-                  : "border border-gray-400"
+              alt="Thumbnail"
+              className={`h-20 w-20 object-cover cursor-pointer rounded-md mx-2 ${
+                selectedImage === image ? "border-2 border-buttonGreen" : "border border-gray-400"
               }`}
               onClick={() => setSelectedImage(image)}
             />
           ))}
         </div>
-        <div className="border-b mt-6" />
-        <div className="mt-10">
-          <p className="font-poppins text-[21px] text-black font-extrabold mt-2">
-            Product Details
-          </p>
-          <div className="mt-4 pr-8">
-            <p className="font-poppins text-[13px] text-black font-bold mt-2">
-              Fresh Milk
-            </p>
-            <p className="font-poppins text-[13px] text-gray-500 mt-1">Type</p>
-            <p className="font-poppins text-[13px] text-black font-bold mt-3">
-              Unit
-            </p>
-            <p className="font-poppins text-[13px] text-gray-500 mt-1">1L</p>
-            <p className="font-poppins text-[13px] text-black font-bold mt-3">
-              FSSAI License
-            </p>
-            <p className="font-poppins text-[13px] text-gray-500 mt-1">
-              10012063000143
-            </p>
-            <p className="font-poppins text-[13px] text-black font-bold mt-3">
-              Shelf Life
-            </p>
-            <p className="font-poppins text-[13px] text-gray-500 mt-1">
-              2 days
-            </p>
-            <p className="font-poppins text-[13px] text-black font-bold mt-3">
-              Return Policy
-            </p>
-            <p className="font-poppins text-[13px] text-gray-500 mt-1">
-              The product is non-returnable. For a damaged, defective, expired
-              or incorrect item, you can request a replacement within 24 hours
-              of delivery. In case of an incorrect item, you may raise a
-              replacement or return request only if the item is sealed/
-              unopened/ unused and in original condition.
-            </p>
-            <p className="font-poppins text-[13px] text-black font-bold mt-3">
-              Manufacturer's Name and Address
-            </p>
-            <p className="font-poppins text-[13px] text-gray-500 mt-1">
-              The Ropar District Co-op Milk Producer’s Union Ltd., Verka Mohali
-              Dairy, S.A.S. Nagar, Mohali-160055
-            </p>
-            <p className="font-poppins text-[13px] text-black font-bold mt-3">
-              Marketed By
-            </p>
-            <p className="font-poppins text-[13px] text-gray-500 mt-1">
-              The Punjab State Co-op Milk Producer's Union Federation Ltd., Sco
-              No. 153-155, Sector-34A, Chandigarh-160022
-            </p>
 
-            <p className="font-poppins text-[13px] text-black font-bold mt-3">
-              Country of Origin
-            </p>
-            <p className="font-poppins text-[13px] text-gray-500 mt-1">India</p>
-            <p className="font-poppins text-[13px] text-black font-bold mt-3">
-              Customer Care Details
-            </p>
-            <p className="font-poppins text-[13px] text-gray-500 mt-1">
-              Email: info@blinkit.com
-            </p>
+        {/* Product Description */}
+        <div className="mt-10 px-6">
+          <h2 className="text-xl font-extrabold text-black">Product Details</h2>
+          <div className="mt-4 space-y-3 text-sm text-gray-700">
+            <div>
+              <p className="font-bold text-black">Fresh Milk</p>
+              <p>Type</p>
+            </div>
+            <div>
+              <p className="font-bold text-black">Unit</p>
+              <p>1L</p>
+            </div>
+            <div>
+              <p className="font-bold text-black">FSSAI License</p>
+              <p>10012063000143</p>
+            </div>
+            <div>
+              <p className="font-bold text-black">Shelf Life</p>
+              <p>2 days</p>
+            </div>
+            <div>
+              <p className="font-bold text-black">Return Policy</p>
+              <p>The product is non-returnable. Replacements are available within 24 hours for damaged, expired, or incorrect items (sealed/unopened/unused only).</p>
+            </div>
+            <div>
+              <p className="font-bold text-black">Manufacturer</p>
+              <p>The Ropar District Co-op Milk Producer’s Union Ltd., Verka Mohali Dairy, S.A.S. Nagar, Mohali-160055</p>
+            </div>
+            <div>
+              <p className="font-bold text-black">Marketed By</p>
+              <p>The Punjab State Co-op Milk Producer's Union Federation Ltd., SCO No. 153-155, Sector-34A, Chandigarh-160022</p>
+            </div>
+            <div>
+              <p className="font-bold text-black">Country of Origin</p>
+              <p>India</p>
+            </div>
+            <div>
+              <p className="font-bold text-black">Customer Care</p>
+              <p>Email: info@blinkit.com</p>
+            </div>
           </div>
         </div>
       </div>
-      <div className="w-[45%] h-screen border-b px-[40px] py-[50px]">
-        <p className="font-poppins text-[12px] text-gray-700 font-medium">
+
+      {/* Right Column - Product Summary and Features */}
+      <div className="w-[45%] h-full px-10 py-12 border-b">
+        <p className="text-xs text-gray-700 font-medium">
           Home / Milk / <span className="text-gray-400">Verka Toned Milk</span>
         </p>
-        <p className="font-poppins text-[22px] text-black font-extrabold mt-2">
-          Verka Toned Milk
-        </p>
-        <div className="h-[25px] w-[60px] bg-gray-100 flex justify-center items-center mt-2 rounded-sm">
+        <h1 className="text-2xl font-extrabold text-black mt-2">Verka Toned Milk</h1>
+
+        <div className="h-6 w-16 bg-gray-100 flex justify-center items-center mt-2 rounded-sm">
           <img
             src="http://cdn.grofers.com/assets/eta-icons/15-mins.png"
             height="12"
             width="12"
+            alt="ETA"
           />
-          <p className="font-poppins text-[11px] text-black font-bold mt-[1px] ml-1">
-            11 MIN
-          </p>
+          <span className="text-xs font-bold text-black ml-1">11 MIN</span>
         </div>
-        <div className="flex mt-2">
-          <p className="font-poppins text-[18px] text-buttonGreen font-medium mt-[4px]">
-            View all by Verka
-          </p>
+
+        <div className="flex items-center mt-2 text-buttonGreen cursor-pointer">
+          <p className="text-lg font-medium">View all by Verka</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="2"
+            strokeWidth="2"
             stroke="currentColor"
-            class="w-4 h-4 mt-2 text-buttonGreen"
+            className="w-4 h-4 ml-1"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M9 5l7 7-7 7"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
           </svg>
         </div>
+
         <div className="border-b mt-4" />
-        <div className="mt-4 flex justify-between">
+
+        <div className="mt-4 flex justify-between items-center">
           <div>
-            <p className="font-poppins text-[12px]">400 g</p>
-            <p className="font-poppins text-[14px] text-black font-bold">
-              <b>MRP </b>₹ 199
-            </p>
-            <p className="font-poppins text-[10px] text-gray-500">
-              (Inclusive of all taxes)
-            </p>
+            <p className="text-xs">400 g</p>
+            <p className="text-base font-bold text-black">MRP ₹ 199</p>
+            <p className="text-[10px] text-gray-500">(Inclusive of all taxes)</p>
           </div>
-          <div>
-            <div className="h-[32px] w-[60px] rounded-md bg-lightGreen border border-buttonGreen flex flex-row justify-center items-center">
-              <p className="font-poppins font-medium text-[13px] text-buttonGreen">
-                ADD
-              </p>
-            </div>
-          </div>
+          <button className="h-8 w-16 rounded-md bg-lightGreen border border-buttonGreen text-buttonGreen font-medium text-sm">
+            ADD
+          </button>
         </div>
-        <div className="items-start mt-10">
-          <p className="font-poppins text-[18px] font-semibold">
-            Why shop from blinkit?
-          </p>
-          <div>
-            {blinkitFeatures.map((feature) => (
-              <div className="flex mt-4 items-center" key={feature.id}>
-                <img
-                  src={feature.icon}
-                  alt={feature.title}
-                  className="h-[50px] w-[50px]"
-                />
+
+        <div className="mt-10">
+          <h3 className="text-lg font-semibold">Why shop from blinkit?</h3>
+          <div className="mt-4 space-y-4">
+            {blinkitFeatures.map(({ id, title, description, icon }) => (
+              <div key={id} className="flex items-center">
+                <img src={icon} alt={title} className="h-[50px] w-[50px]" />
                 <div className="ml-3">
-                  <p className="font-poppins text-[12px]">{feature.title}</p>
-                  <p className="font-poppins text-[11px] text-gray-500 mt-1">
-                    {feature.description}
-                  </p>
+                  <p className="text-sm font-medium text-black">{title}</p>
+                  <p className="text-xs text-gray-500 mt-1">{description}</p>
                 </div>
               </div>
             ))}
